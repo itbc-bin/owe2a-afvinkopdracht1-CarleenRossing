@@ -66,11 +66,6 @@ def lees_inhoud(bestand):
     
 def is_dna(seq):
 
-    """
-    Deze functie bepaald of de sequentie (een element uit seqs) DNA is.
-    Indien ja, return True
-    Zo niet, return False
-    """
     
     for letter in seq:                                      #Als de sequentie deze letters bevat, is het een DNA
         if letter not in ['A','T','C','G']:
@@ -80,13 +75,12 @@ def is_dna(seq):
     
 
 def knipt(seq):
-    """
-    Bij deze functie kan je een deel van de code die je de afgelopen 2 afvinkopdrachten geschreven hebt herbruiken
 
-    Deze functie bepaald of een restrictie enzym in de sequentie (een element uit seqs) knipt.
-    Hiervoor mag je kiezen wat je returnt, of wellicht wil je alleen maar printjes maken.
-    """
-    enzymen = open("enzymen.txt", 'r')
+    try:
+        enzymen = open("enzymen.txt", 'r')
+    except IOError:
+        print("het bestand bestaat niet")
+
 
     for regel in enzymen:                                   #leest het bestand in en haalt allemaal stomme tekens weg
         regel = regel.replace("^", "")                      #Bekijkt of de enzymen in het grote bestand staan
